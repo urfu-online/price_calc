@@ -45,4 +45,4 @@ class ProductAdmin(admin.ModelAdmin):
 class WorkAdmin(admin.ModelAdmin):
     list_display = ('id', 'work_type', 'role', 'executor', 'status', 'task')
     list_filter = ('work_type', 'role', 'executor', 'task')
-    raw_id_fields = ('prerequisites', 'actions')
+    # raw_id_fields = ('prerequisites', 'actions')

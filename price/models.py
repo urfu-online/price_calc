@@ -6,6 +6,9 @@ class WorkType(models.Model):
     title = models.CharField(max_length=255)
     product_is_required = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.title
+
 
 class ActionType(models.Model):
     UNITS = {
@@ -13,7 +16,7 @@ class ActionType(models.Model):
         "HRS": _("Hours"),
     }
     title = models.CharField(_("Title"), max_length=255)
-    estimated_time = models.TimeField(_("Estimated time"))
+    estimated_time = models.TimeField(_("Estimated time"))  # DurationField
     price = models.FloatField(_("Price"))
     number = models.FloatField(_("Number"))
     units = models.CharField(_("Units"), max_length=3, choices=UNITS)
@@ -22,3 +25,6 @@ class ActionType(models.Model):
     class Meta:
         verbose_name = _("action type")
         verbose_name_plural = _("action types")
+
+    def __str__(self):
+        return self.title
